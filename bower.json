@@ -1,0 +1,25 @@
+{
+  "name": "trackr",
+  "main": "trackr.js",
+  "version": "0.0.0",
+  "authors": [
+    "Eli Dupuis <elidupuis@gmail.com>"
+  ],
+  "description": "A declarative, DOM based event tracker for Google Analytics",
+  "keywords": [
+    "google",
+    "analytics",
+    "event",
+    "tracking"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": ">=1.7"
+  }
+}

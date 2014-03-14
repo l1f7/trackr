@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Google Analytics Custom Event Tracking</title>
+</head>
+<body>
+
+  <!-- https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide -->
+
+  <p><a href="http://google.com" data-trackr="navigation/back">simple category and action</a></p>
+
+  <p><a href="http://google.com" data-trackr="navigation/back" data-trackr-label="label here" data-trackr-value="value here">simple with label and value</a></p>
+
+  <p><a href="http://google.com" data-trackr="article.navigation.plus/next.top">lots of delimiters</a></p>
+
+
+  <script>
+    // faking Google Analytics for now...
+    var _gaq = _gaq || [];
+  </script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script src="trackr.js"></script>
+
+</body>
+</html>
