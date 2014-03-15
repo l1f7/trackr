@@ -22,9 +22,7 @@
    * Delegated so it works with dynamically injected content.
    */
   function listen () {
-    $(document).on('click', '[data-trackr]', function (e) {
-      e.preventDefault(); // hacked for now...easier testing
-
+    $(document).on('click', '[data-trackr]', function () {
       var data = collect(this);
       report(data);
     });
@@ -38,13 +36,19 @@
     var $el = $(el);
     var data = [];
     var topic = formatTopic($el.data('trackr'));
+    var labelDefault;
+
+    // default label to href attr unless it's an internal link
+    if (!/^#/.test($el.attr('href'))) {
+      labelDefault = $el.attr('href');
+    }
 
     // construct the data to pass to Google Analytics
     data[0] = topic[0] || undefined;
     data[1] = topic[1] || undefined;
-    data[2] = $el.data('trackr-label') || undefined;
+    data[2] = $el.data('trackr-label') || labelDefault;
     data[3] = $el.data('trackr-value') || undefined;
-    data[4] = $el.data('trackr-nointeract') || undefined;
+    data[4] = $el.data('trackr-nointeract') || false;
 
     return data;
   }
