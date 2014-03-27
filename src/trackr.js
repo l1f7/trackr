@@ -8,12 +8,12 @@
 
   // abort if Google Analytics is not present
   if (!win._gaq) {
-    console.warn('Google Analytics not loading on page.');
+    //console.warn('Google Analytics not loading on page.');
     return false;
   }
 
   function init () {
-    console.log('init()');
+    //console.log('init()');
     listen();
   }
 
@@ -32,7 +32,7 @@
    * Gather data to be reported from `data-` attributes.
    */
   function collect (el) {
-    console.dirxml('collect()', el);
+    //console.dirxml('collect()', el);
     var $el = $(el);
     var data = [];
     var topic = formatTopic($el.data('trackr'));
@@ -62,7 +62,7 @@
 
     // abort if required data is not passed in.
     if (!data || data[0] === undefined || data[1] === undefined) {
-      console.warn('cannot report event to Google Analytics; required data not passed in', data);
+      //console.warn('cannot report event to Google Analytics; required data not passed in', data);
       return false;
     }
 
@@ -70,7 +70,7 @@
 
     // _gaq.push(['_trackEvent', 'Videos', 'Play', 'Baby\'s First Birthday']);
     win._gaq.push(params);
-    console.log('sending data to GA', params);
+    //console.log('sending data to GA', params);
   }
 
   /*
