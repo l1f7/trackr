@@ -15,7 +15,7 @@ When the above element is clicked Trackr will log an event in Google Analytics w
 
 Trackr depends on jQuery and Google Analytics *Universal*. They must both be included _before_ `trackr.js`.
 
-> **NOTE:** If you want to use the basic element tracking with the previous version of Google Analytics (_gaq), [version 0.0.1 of Trackr](https://github.com/l1f7/trackr/tree/c060b9c290352970635f55a81c8fbbdcd52d7b6c) works with that version of Google Analytics. Since the update to 0.2.0, Google Analytics Universal is required.
+> **NOTE:** If you want to use the basic element tracking with the previous version of Google Analytics (_gaq), [version 0.0.1 of Trackr](https://github.com/l1f7/trackr/releases/tag/0.0.1) works with that version of Google Analytics. Since the update to 0.2.0, Google Analytics Universal is required.
 
 ```bash
 bower install trackr --save
