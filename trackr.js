@@ -102,7 +102,6 @@
 
         /*
          * Push event to Google Analytics
-         * See https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide#SettingUpEventTracking
          */
         report : function (data) {
           var params;
@@ -164,7 +163,7 @@
             // abort if required data is not passed in.
             if (!data || data[0] === undefined || data[1] === undefined) {
               if(win.console)
-                console.warn('Cannot report event to Google Analytics; required data not passed in. You need to set at minimum a category/action on your link, ie: <a href="http://link.com" data-trackr="category:action">Link.com</a>');
+                console.warn('Cannot report event to Google Analytics; required data not passed in. You need to wrap your Facebook element in a div with the data-trackr attributes, ie: <div data-trackr="category:action" data-trackr-label="label"><div class="fb-like" data-href="https://www.facebook.com/" data-layou="standard" data-action="like" data-show-faces="true" data-share="true"></div></div>');
               return false;
             }
 
@@ -177,22 +176,27 @@
 
 
           //Send or Share The Page
-          FB.Event.subscribe('message.send', function (href, widget) {
-            var data = Trackr.collect(widget.parentNode);
+          //
+          // This doesn't work from what I've found, but leaving
+          // in case I figure something out in the future
+          //
+          //
+          // FB.Event.subscribe('message.send', function (href, widget) {
+          //   var data = Trackr.collect(widget.parentNode);
 
-            // abort if required data is not passed in.
-            if (!data || data[0] === undefined || data[1] === undefined) {
-              if(win.console)
-                console.warn('Cannot report event to Google Analytics; required data not passed in. You need to set at minimum a category/action on your link, ie: <a href="http://link.com" data-trackr="category:action">Link.com</a>');
-              return false;
-            }
+          //   // abort if required data is not passed in.
+          //   if (!data || data[0] === undefined || data[1] === undefined) {
+          //     if(win.console)
+          //       console.warn('Cannot report event to Google Analytics; required data not passed in. You need to set at minimum a category/action on your link, ie: <a href="http://link.com" data-trackr="category:action">Link.com</a>');
+          //     return false;
+          //   }
 
-            if (win.console)
-              console.log('sending FB Share: ', data);
+          //   if (win.console)
+          //     console.log('sending FB Share: ', data);
 
-            ga('send', 'social', 'facebook', 'share', data[2]);
-            ga('send', 'event', 'facebook', 'share', data[2]);
-          });
+          //   ga('send', 'social', 'facebook', 'share', data[2]);
+          //   ga('send', 'event', 'facebook', 'share', data[2]);
+          // });
         },
 
     /*
@@ -231,7 +235,7 @@
           // abort if required data is not passed in.
           if (!data || data[0] === undefined || data[1] === undefined) {
             if(win.console)
-              console.warn('Cannot report event to Google Analytics; required data not passed in. You need to set at minimum a category/action on your link, ie: <a href="http://link.com" data-trackr="category:action">Link.com</a>');
+              console.warn('Cannot report event to Google Analytics; required data not passed in. You need to wrap your Twitter element in a div with the data-trackr attributes, ie: <div data-trackr="category:action" data-trackr-label="label"><a href="https://twitter.com" class="twitter-share-button" data-url="http://www.liftinteractive.com">Tweet</a></div>');
             return false;
           }
 
@@ -255,7 +259,7 @@
           // abort if required data is not passed in.
           if (!data || data[0] === undefined || data[1] === undefined) {
             if(win.console)
-              console.warn('Cannot report event to Google Analytics; required data not passed in. You need to set at minimum a category/action on your link, ie: <a href="http://link.com" data-trackr="category:action">Link.com</a>');
+              console.warn('Cannot report event to Google Analytics; required data not passed in. You need to wrap your Twitter element in a div with the data-trackr attributes, ie: <div data-trackr="category:action" data-trackr-label="label"><a href="https://twitter.com" class="twitter-share-button" data-url="http://www.liftinteractive.com">Tweet</a></div>');
             return false;
           }
 
@@ -286,7 +290,7 @@
           // abort if required data is not passed in.
           if (!data || data[0] === undefined || data[1] === undefined) {
             if(win.console)
-              console.warn('Cannot report event to Google Analytics; required data not passed in. You need to set at minimum a category/action on your link, ie: <a href="http://link.com" data-trackr="category:action">Link.com</a>');
+              console.warn('Cannot report event to Google Analytics; required data not passed in. You need to wrap your Twitter element in a div with the data-trackr attributes, ie: <div data-trackr="category:action" data-trackr-label="label"><a href="https://twitter.com" class="twitter-share-button" data-url="http://www.liftinteractive.com">Tweet</a></div>');
             return false;
           }
 
@@ -317,7 +321,7 @@
           // abort if required data is not passed in.
           if (!data || data[0] === undefined || data[1] === undefined) {
             if(win.console)
-              console.warn('Cannot report event to Google Analytics; required data not passed in. You need to set at minimum a category/action on your link, ie: <a href="http://link.com" data-trackr="category:action">Link.com</a>');
+              console.warn('Cannot report event to Google Analytics; required data not passed in. You need to wrap your Twitter element in a div with the data-trackr attributes, ie: <div data-trackr="category:action" data-trackr-label="label"><a href="https://twitter.com" class="twitter-share-button" data-url="http://www.liftinteractive.com">Tweet</a></div>');
             return false;
           }
 
@@ -349,7 +353,7 @@
           // abort if required data is not passed in.
           if (!data || data[0] === undefined || data[1] === undefined) {
             if(win.console)
-              console.warn('Cannot report event to Google Analytics; required data not passed in. You need to set at minimum a category/action on your link, ie: <a href="http://link.com" data-trackr="category:action">Link.com</a>');
+              console.warn('Cannot report event to Google Analytics; required data not passed in. You need to wrap your Twitter element in a div with the data-trackr attributes, ie: <div data-trackr="category:action" data-trackr-label="label"><a href="https://twitter.com" class="twitter-share-button" data-url="http://www.liftinteractive.com">Tweet</a></div>');
             return false;
           }
 
@@ -378,98 +382,122 @@
       ======================================
      */
 
-        // youtube : function () {
-        //   if(!win.YT){
-        //     if(win.console)
-        //       console.log('YouTube api is non-existant. Injecting API.');
+        youtube : function () {
+          if(!win.YT){
+            if(win.console)
+              console.log('YouTube api is non-existant. Injecting API.');
 
-        //     // Inject API
-        //     var j = document.createElement('script'),
-        //     f = document.getElementsByTagName('script')[0];
-        //     j.src = '//www.youtube.com/iframe_api';
-        //     j.async = true;
-        //     f.parentNode.insertBefore(j, f);
+            // Inject API
+            var j = document.createElement('script'),
+            f = document.getElementsByTagName('script')[0];
+            j.src = '//www.youtube.com/iframe_api';
+            j.async = true;
+            f.parentNode.insertBefore(j, f);
 
-        //     // Once YouTube api has loaded
-        //     j.onload = function () {
-        //       win.onYouTubeIframeAPIReady = Trackr.onYouTubeIframeAPIReady;
-        //     };
-        //   } else {
-        //     win.onYouTubeIframeAPIReady = this.onYouTubeIframeAPIReady;
-        //   }
-        // },
+            // Once YouTube api has loaded
+            j.onload = function () {
+              win.onYouTubeIframeAPIReady = Trackr.onYouTubeIframeAPIReady;
+            };
+          } else {
+            win.onYouTubeIframeAPIReady = this.onYouTubeIframeAPIReady;
+          }
+        },
 
 
-        // /*
-        //  * Attach our YT listener once the API is loaded
-        //  */
-        // onYouTubeIframeAPIReady : function () {
-        //   console.log('youtube iframe api ready');
-        //   for (var e = document.getElementsByTagName('iframe'), x = e.length; x--;){
+        /*
+         * Attach our YT listener once the API is loaded
+         *
+         * Due to the encapsulated nature here, I had to add the
+         * various events directly inside the initialization
+         * (originally wanted them to be part of the main Trackr object)
+         */
+        onYouTubeIframeAPIReady : function () {
+          for (var e = document.getElementsByTagName('iframe'), x = e.length; x--;){
 
-        //     if (/youtube.com\/embed/.test(e[x].src)) {
-        //       new YT.Player(e[x], {
-        //         events: {
-        //           'onStateChange': function(e){
-        //             console.log('stage changed');
-        //             Trackr.onPlayerStateChange(e);
-        //           },
-        //           'onError': Trackr.onPlayerError,
-        //           'onReady': function(e){
-        //             console.log('YT player ready');
-        //           },
-        //         }
-        //       });
-        //     }
-        //   }
-        // },
+            if (/youtube.com\/embed/.test(e[x].src)) {
+              new YT.Player(e[x], {
+                events: {
 
-        // onReady: function (e) {
-        //   console.log('ready');
-        // },
+                  /*
+                   * When the API is all setup and the YouTube player is ready
+                   * Leaving for later, not sure what to do with this now.
+                   */
+                  'onReady': function (e) {
+                  },
 
-        // /*
-        //  * Listen for play/pause, other states such as rewind and end could also be added
-        //  * Reports % played every second
-        //  */
-        // onPlayerStateChange: function (e) {
-        //   console.log('playerStateChange: ');
-        //   console.log(e);
-        //   e["data"] == YT.PlayerState.PLAYING && setTimeout(this.onPlayerPercent, 1000, e["target"]);
-        //   if (e["data"] == YT.PlayerState.PLAYING && YT.gtmLastAction == "p") {
-        //     ga('send', 'event', 'youtube', 'play');
-        //   }
-        //   if (e["data"] == YT.PlayerState.PAUSED) {
-        //     ga('send', 'event', 'youtube', 'paused');
-        //   }
-        //   if (e["data"] == YT.PlayerState.ENDED) {
-        //     ga('send', 'event', 'youtube', 'ended');
-        //   }
-        // },
+                  /*
+                   * Listen for changes in the video player, fire appropriate events to GA
+                   */
+                  'onStateChange': function (e) {
+                    var percentID;
+                    var data = e['target'].getVideoData();
+                    if (e['data'] === YT.PlayerState.PLAYING) {
+                      ga('send', 'event', {
+                        'eventCategory': 'YouTube',
+                        'eventAction': 'Play',
+                        'eventLabel' : data['title'] + ' : ' + e['target'].getVideoUrl()
+                      });
+                      // Report % played every second
+                      var onPlayerPercent = function (e) {
+                        var t = e['getDuration']() - e['getCurrentTime']() <= 1.5 ? 1 : (Math.floor(e['getCurrentTime']() / e['getDuration']() * 4) / 4).toFixed(2);
+                        if (!e['lastP'] || t > e['lastP']) {
+                          e['lastP'] = t;
+                          console.log('played: '+ (t * 100 + '%'));
+                          ga('send', 'event', {
+                            'eventCategory': 'YouTube',
+                            'eventAction': 'Percentage',
+                            'eventLabel' : data['title'] + ' : ' + (t * 100 + '%'),
+                            'eventValue': t * 100
+                          });
+                          //ga('send', 'event', 'youtube', 'played: '+ (t * 100 + "%"));
+                        }
+                        /* jshint ignore:start */
+                        e['lastP'] !== 1 && setTimeout(onPlayerPercent, 1000, e);
+                        /* jshint ignore:end */
+                      };
+                      setTimeout(onPlayerPercent, 1000, e['target']);
+                    }
 
-        // /*
-        //  * Report the % played if it matches 0%, 25%, 50%, 75% or completed
-        //  */
-        // onPlayerPercent: function (e) {
-        //   if (e["getPlayerState"]() == YT.PlayerState.PLAYING) {
-        //     var t = e["getDuration"]() - e["getCurrentTime"]() <= 1.5 ? 1 : (Math.floor(e["getCurrentTime"]() / e["getDuration"]() * 4) / 4).toFixed(2);         if (!e["lastP"] || t > e["lastP"]) {
-        //         e["lastP"] = t;
-        //       ga('send', 'event', 'youtube', 'played: '+ (t * 100 + "%"));
-        //     }
-        //     e["lastP"] != 1 && setTimeout(this.onPlayerPercent, 1000, e);
-        //   }
-        // },
+                    // Send event on Paused
+                    if (e['data'] === YT.PlayerState.PAUSED) {
+                      ga('send', 'event', {
+                        'eventCategory': 'YouTube',
+                        'eventAction': 'Pause',
+                        'eventLabel' : data['title'] + ' : ' + e['target'].getVideoUrl()
+                      });
+                    }
 
-        // /*
-        //  * Catch all to report errors through the GTM data layer
-        //  */
-        // onPlayerError: function (e) {
-        //   //ga('send', 'event', 'youtube', 'error: ' + e["data"]);
-        // },
+                    // Send event on Completed
+                    if (e['data'] === YT.PlayerState.ENDED) {
+                      ga('send', 'event', {
+                        'eventCategory': 'YouTube',
+                        'eventAction': 'Completed',
+                        'eventLabel' : data['title'] + ' : ' + e['target'].getVideoUrl()
+                      });
+                    }
+                  },
+
+
+                  /*
+                   * Catch all to report errors through the GTM data layer
+                   */
+                  'onError': function (e) {
+                      var data = e['target'].getVideoData();
+                      ga('send', 'event', {
+                        'eventCategory': 'YouTube',
+                        'eventAction': 'Error',
+                        'eventLabel' : data['title'] + ' : ' + e['target'].getVideoUrl()
+                      });
+                  }
+                }
+              });
+            }
+          }
+        },
   };
 
   /*
-   * Setup Trackr
+   * Attach our Trackr script to jQuery
    */
   $.fn.trackr = function (options) {
     // abort if Google Analytics doesn't exist

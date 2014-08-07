@@ -5,6 +5,7 @@
   "eqeqeq": true,
   "immed": true,
   "latedef": true,
+  "loopfunc": true,
   "newcap": true,
   "noarg": true,
   "quotmark": "single",
@@ -23,6 +24,7 @@
       "FB": true,
       "location": true,
       "document": true,
-      "window": true
+      "window": true,
+      "YT": true
   }
 }
