@@ -18,13 +18,7 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    "tests",
-    ".editorconfig",
-    ".gitignore",
-    ".jshintignore",
-    ".jshint",
-    "package.json",
-    "gruntfile.js"
+    "tests"
   ],
   "dependencies": {
     "jquery": ">=1.7"
