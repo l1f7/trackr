@@ -3,8 +3,7 @@
   "main": "trackr.js",
   "version": "0.2.1",
   "authors": [
-    "Eli Dupuis <elidupuis@gmail.com>",
-    "David Odin Kether <dave@kether-interactive.ca>"
+    "Eli Dupuis <elidupuis@gmail.com>"
   ],
   "description": "A declarative, DOM based event tracker for Google Analytics Universal",
   "keywords": [
