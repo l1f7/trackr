@@ -23,7 +23,7 @@
     ".gitignore",
     ".jshintignore",
     ".jshint",
-    "package.json"
+    "package.json",
     "gruntfile.js"
   ],
   "dependencies": {

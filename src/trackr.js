@@ -1,4 +1,14 @@
 
+/* @TODO: verify non-interactive events are working
+          http://www.lunametrics.com/blog/2014/05/06/noninteraction-events-google-analytics/#sr=g&m=o&cp=or&ct=-tmc&st=(opu%20qspwjefe)&ts=1406755791
+
+
+Need to use the _non-interactional_ attribute? Just add `data-trackr-nointeract`.
+
+```html
+<span data-trackr="videos/play" data-trackr-nointeract>...</span>
+```
+
 
 /*
   Easy event tracking with Google Analytics using `data-` attributes
@@ -445,8 +455,8 @@
                           console.log('played: '+ (t * 100 + '%'));
                           ga('send', 'event', {
                             'eventCategory': 'YouTube',
-                            'eventAction': 'Percentage',
-                            'eventLabel' : data['title'] + ' : ' + (t * 100 + '%'),
+                            'eventAction': 'Percentage' + (t * 100 + '%'),
+                            'eventLabel' : data['title'],
                             'eventValue': t * 100
                           });
                           //ga('send', 'event', 'youtube', 'played: '+ (t * 100 + "%"));
