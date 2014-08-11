@@ -3,23 +3,30 @@
   "main": "trackr.js",
   "version": "0.2.1",
   "authors": [
-    "Eli Dupuis <elidupuis@gmail.com>"
+    "Eli Dupuis <elidupuis@gmail.com>",
+    "David Odin Kether <dave@kether-interactive.ca>",
   ],
   "description": "A declarative, DOM based event tracker for Google Analytics Universal",
   "keywords": [
     "google",
     "analytics",
     "event",
-    "tracking"
+    "tracking",
   ],
   "license": "MIT",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
-    "tests"
+    "tests",
+    ".editorconfig",
+    ".gitignore",
+    ".jshintignore",
+    ".jshint",
+    "package.json",
+    "gruntfile.js",
   ],
   "dependencies": {
-    "jquery": ">=1.7"
+    "jquery": ">=1.7",
   }
 }
