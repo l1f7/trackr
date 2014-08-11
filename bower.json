@@ -1,7 +1,7 @@
 {
   "name": "trackr",
   "main": "trackr.js",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "authors": [
     "Eli Dupuis <elidupuis@gmail.com>",
     "David Odin Kether <dave@kether-interactive.ca>"
